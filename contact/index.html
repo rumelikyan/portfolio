@@ -16,6 +16,20 @@
         </ul>
     </nav>
     <h1>Contact</h1>
-    <p>If you'd like to get in touch, please feel free to reach out via email at rumelikyan@gmail.com or connect with me on LinkedIn.</p>
+    <p>If you'd like to get in touch, please feel free to reach out via the form below or connect with me on LinkedIn.</p>
+    
+    <form action="mailto:rumelikyan@gmail.com" method="POST" enctype="text/plain">
+        <label for="email">Your Email:</label><br>
+        <input id="email" name="email" type="email" placeholder="Enter your email" required><br><br>
+        
+        <label for="subject">Subject:</label><br>
+        <input id="subject" name="subject" placeholder="Enter the subject" required><br><br>
+        
+        <label for="body">Message:</label><br>
+        <textarea id="body" name="body" rows="5" cols="40" placeholder="Enter your message" required></textarea><br><br>
+        
+        <button>Submit</button>
+    </form>
 </body>
 </html>
+
