@@ -8,3 +8,92 @@ body {
 
     padding: 1em;
   }
+
+  :root {
+    --color-accent: oklch(65% 50% 0);
+}
+
+html {
+    accent-color: var(--color-accent);
+}
+
+body {
+    font: 100%/1.5 system-ui;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 400%; /* Significantly larger for hierarchy */
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: 0.5em;
+    transition: all 0.2s ease-in-out;
+}
+
+nav a.current {
+    border-bottom: 0.4em solid oklch(90% 3% 200);
+    padding-bottom: 0.2em;
+    font-weight: bold;
+}
+
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+}
+
+.projects article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.projects h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.projects img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.projects p {
+    margin: 0.5em 0 0;
+}
+
+
+
+
