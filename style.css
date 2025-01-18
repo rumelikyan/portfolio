@@ -1,15 +1,11 @@
 body {
-
     font: 100%/1.5 system-ui;
-    
     max-width: 100ch;
-
     margin-inline: auto;
-
     padding: 1em;
-  }
+}
 
-  :root {
+:root {
     --color-accent: oklch(65% 50% 0);
 }
 
@@ -22,6 +18,21 @@ body {
     margin: 0;
     padding: 0;
 }
+/* Main page image styling */
+/* Main page image styling */
+.main-image {
+    display: block;
+    margin: 2em 0; /* Add vertical spacing above and below the image */
+    padding: 1em; /* Add padding inside the image border */
+    background-color: #f5f5f5; /* Light background for contrast */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    max-width: 100%; /* Ensure responsiveness */
+    height: auto;
+    text-align: left; /* Left-align the image */
+}
+
+
 
 h1 {
     font-size: 400%; /* Significantly larger for hierarchy */
@@ -63,24 +74,82 @@ nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
 }
 
+/* Contact-specific styles */
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    grid-column: 1 / -1;
+    margin-block: 0.5em;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    grid-column: 1 / -1;
+    padding: 0.7em;
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: oklch(60% 50% 0);
+}
+
+/* Projects-specific styles */
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 1em;
+    gap: 2em;
+    padding: 1em;
+    background-color: #f5f5f5;
+    border-radius: 8px;
 }
 
 .projects article {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
+    grid-template-rows: auto 1fr auto;
+    align-items: start;
     padding: 1em;
+    background-color: white;
     border: 1px solid #ccc;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.projects article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
 .projects h2 {
-    margin: 0;
+    margin: 0 0 0.5em;
     font-size: 1.5em;
+    color: var(--color-accent);
+    text-align: center;
 }
 
 .projects img {
@@ -88,12 +157,12 @@ nav a:hover {
     height: auto;
     object-fit: cover;
     border-radius: 4px;
+    margin-bottom: 0.5em;
 }
 
 .projects p {
-    margin: 0.5em 0 0;
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
 }
-
-
-
-
