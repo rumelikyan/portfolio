@@ -14,22 +14,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let p of pages) {
         let url = p.url;
-        let title = p.title;
-
         if (!ARE_WE_HOME && !url.startsWith('http')) {
             url = '../' + url;
         }
 
-        nav.insertAdjacentHTML(
-            'beforeend',
-            `<a href="${url}" ${p.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>${title}</a>`
+        let a = document.createElement('a');
+        a.href = url;
+        a.textContent = p.title;
+        a.classList.toggle(
+            'current',
+            a.host === location.host && a.pathname === location.pathname
         );
+        a.toggleAttribute('target', a.host !== location.host);
+        nav.append(a);
     }
 
-    let currentPage = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
-    for (let link of nav.querySelectorAll('a')) {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('current');
-        }
+    document.body.insertAdjacentHTML(
+        'afterbegin',
+        `
+        <label class="color-scheme">
+            Theme:
+            <select>
+                <option value="light dark">Automatic</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </label>
+        `
+    );
+
+    const select = document.querySelector('.color-scheme select');
+    const root = document.documentElement;
+
+    function setColorScheme(colorScheme) {
+        root.style.setProperty('color-scheme', colorScheme);
+        localStorage.colorScheme = colorScheme;
+        select.value = colorScheme;
     }
+
+    if ('colorScheme' in localStorage) {
+        setColorScheme(localStorage.colorScheme);
+    } else {
+        setColorScheme('light dark');
+    }
+    
+
+    select.addEventListener('input', (event) => {
+        setColorScheme(event.target.value);
+    });
+    
 });
