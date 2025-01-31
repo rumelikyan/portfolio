@@ -1,32 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
+export async function fetchJSON(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data: ${response.statusText}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching or parsing JSON data:', error);
+    }
+}
+
+export async function fetchGitHubData(username) {
+    return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+    if (!containerElement) {
+        console.error('Invalid container element');
+        return;
+    }
+
+    containerElement.innerHTML = '';
+
+    projects.forEach(project => {
+        const article = document.createElement('article');
+
+        article.innerHTML = `
+            <${headingLevel}>${project.title}</${headingLevel}>
+            <img src="${project.image}" alt="${project.title}">
+            <p>${project.description}</p>
+        `;
+
+        containerElement.appendChild(article);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    let baseURL = window.location.origin + '/';
     let pages = [
-        { url: '', title: 'Home' },
-        { url: 'projects/', title: 'Projects' },
-        { url: 'contact/', title: 'Contact' },
-        { url: 'resume/', title: 'Resume' },
+        { url: baseURL + 'index.html', title: 'Home' },
+        { url: baseURL + 'projects/', title: 'Projects' },
+        { url: baseURL + 'contact/', title: 'Contact' },
+        { url: baseURL + 'resume/', title: 'Resume' },
         { url: 'https://github.com/rumelikyan/portfolio', title: 'GitHub', external: true },
     ];
 
-    const ARE_WE_HOME = document.documentElement.classList.contains('home');
-
-    let nav = document.createElement('nav');
+    const nav = document.createElement('nav');
     document.body.prepend(nav);
 
     for (let p of pages) {
-        let url = p.url;
-        if (!ARE_WE_HOME && !url.startsWith('http')) {
-            url = '../' + url;
-        }
-
         let a = document.createElement('a');
-        a.href = url;
+        a.href = p.url;
         a.textContent = p.title;
-        a.classList.toggle(
-            'current',
-            a.host === location.host && a.pathname === location.pathname
-        );
+        a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
         a.toggleAttribute('target', a.host !== location.host);
         nav.append(a);
+    }
+
+    if (!document.querySelector(".header-separator")) {
+        document.body.insertAdjacentHTML(
+            "afterbegin",
+            `<div class="header-separator"></div>`
+        );
     }
 
     document.body.insertAdjacentHTML(
@@ -57,10 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         setColorScheme('light dark');
     }
-    
 
     select.addEventListener('input', (event) => {
         setColorScheme(event.target.value);
     });
-    
 });

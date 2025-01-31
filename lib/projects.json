@@ -1,0 +1,74 @@
+[
+    {
+        "title": "DSC Final Project",
+        "year": "2024",
+        "image": "https://rumelikyan.github.io/DSC-Final-Project/",
+        "description": "Exploring financial market trends through data analysis."
+    },
+    {
+        "title": "Project Beta",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Building a predictive model for economic forecasting."
+    },
+    {
+        "title": "Project Gamma",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Data visualization techniques for portfolio management."
+    },
+    {
+        "title": "Machine Learning Basics",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "An introductory exploration of machine learning algorithms."
+    },
+    {
+        "title": "Stock Market Analysis",
+        "year": "2021",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Using Python and Pandas to analyze historical stock data."
+    },
+    {
+        "title": "Sentiment Analysis",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A NLP project analyzing public sentiment on social media."
+    },
+    {
+        "title": "Database Optimization",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Optimizing SQL queries and indexing for performance."
+    },
+    {
+        "title": "Cryptocurrency Dashboard",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A real-time dashboard displaying crypto price trends."
+    },
+    {
+        "title": "Web Scraping Project",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Using BeautifulSoup to extract data from web pages."
+    },
+    {
+        "title": "Neural Networks",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Exploring deep learning through TensorFlow and PyTorch."
+    },
+    {
+        "title": "E-Commerce Price Tracker",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A Python bot that tracks price changes on Amazon."
+    },
+    {
+        "title": "Social Media Bot",
+        "year": "2021",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Automating Twitter posts with Python and Tweepy."
+    }
+]
