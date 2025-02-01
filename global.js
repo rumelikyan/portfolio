@@ -1,99 +1,135 @@
-export async function fetchJSON(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch data: ${response.statusText}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Error fetching or parsing JSON data:', error);
-    }
+console.log('IT’S ALIVE!');
+
+let pages = [
+  { url: 'index.html', title: 'Home' },
+  { url: 'projects/index.html', title: 'Projects' },
+  { url: 'contact/index.html', title: 'Contact' },
+  { url: 'resume/index.html', title: 'Resume' },
+  { url: 'https://github.com/rumelikyan/portfolio', title: 'GitHub', external: true }
+];
+
+const ARE_WE_HOME = document.documentElement.classList.contains('home');
+
+let nav = document.createElement('nav');
+document.body.prepend(nav);
+
+for (let p of pages) {
+  let url = p.url;
+  let title = p.title;
+
+  if (!ARE_WE_HOME && !url.startsWith('http')) {
+    url = '../' + url;
+  }
+
+  let a = document.createElement('a');
+  a.href = url;
+  a.textContent = title;
+
+  a.classList.toggle(
+    'current',
+    a.host === location.host && a.pathname === location.pathname
+  );
+
+  if (a.host !== location.host) {
+    a.target = '_blank';
+  }
+
+  nav.append(a);
 }
 
-export async function fetchGitHubData(username) {
-    return fetchJSON(`https://api.github.com/users/${username}`);
+console.log('Enhanced navigation menu dynamically created!');
+
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+  <label class="color-scheme">
+    Theme:
+    <select id="theme-switcher">
+      <option value="light dark">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>
+  `
+);
+
+const select = document.querySelector('#theme-switcher');
+
+if ("colorScheme" in localStorage) {
+  const savedScheme = localStorage.colorScheme;
+  document.documentElement.style.setProperty('color-scheme', savedScheme);
+  select.value = savedScheme;
+}
+
+select.addEventListener('input', function (event) {
+  const selectedScheme = event.target.value;
+  document.documentElement.style.setProperty('color-scheme', selectedScheme);
+  localStorage.colorScheme = selectedScheme;
+});
+
+export async function fetchJSON(url) {
+  try {
+      const response = await fetch(url);
+
+      if (!response.ok) {
+          throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      }
+
+      return await response.json();
+  } catch (error) {
+      console.error("Error fetching or parsing JSON data:", error);
+  }
 }
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-    if (!containerElement) {
-        console.error('Invalid container element');
-        return;
-    }
+  if (!containerElement || !(containerElement instanceof HTMLElement)) {
+      console.error("Invalid container element provided");
+      return;
+  }
 
-    containerElement.innerHTML = '';
+  containerElement.innerHTML = '';
 
-    projects.forEach(project => {
-        const article = document.createElement('article');
+  projects.forEach(project => {
+      const article = document.createElement('article');
 
-        article.innerHTML = `
-            <${headingLevel}>${project.title}</${headingLevel}>
-            <img src="${project.image}" alt="${project.title}">
-            <p>${project.description}</p>
-        `;
+      const title = project.title || "Untitled Project";
+      const image = project.image || "https://via.placeholder.com/200";
+      const description = project.description || "No description available.";
 
-        containerElement.appendChild(article);
-    });
+      const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+      const headingTag = validHeadingLevels.includes(headingLevel) ? headingLevel : 'h2';
+
+      article.innerHTML = `
+          <${headingTag}>${title}</${headingTag}>
+          <img src="${image}" alt="${title}" style="width:200px; height:auto;">
+          <p>${description}</p>
+      `;
+
+      containerElement.appendChild(article);
+  });
 }
 
+export async function fetchGitHubData(username) {
+  try {
+      return await fetchJSON(`https://api.github.com/users/${username}`);
+  } catch (error) {
+      console.error("Error fetching GitHub data:", error);
+  }
+} 
+
 document.addEventListener("DOMContentLoaded", async () => {
-    let baseURL = window.location.origin + '/';
-    let pages = [
-        { url: baseURL + 'index.html', title: 'Home' },
-        { url: baseURL + 'projects/', title: 'Projects' },
-        { url: baseURL + 'contact/', title: 'Contact' },
-        { url: baseURL + 'resume/', title: 'Resume' },
-        { url: 'https://github.com/rumelikyan/portfolio', title: 'GitHub', external: true },
-    ];
+  const githubData = await fetchGitHubData('rumelikyan');
+  const profileStats = document.querySelector('#profile-stats');
 
-    const nav = document.createElement('nav');
-    document.body.prepend(nav);
-
-    for (let p of pages) {
-        let a = document.createElement('a');
-        a.href = p.url;
-        a.textContent = p.title;
-        a.classList.toggle('current', a.host === location.host && a.pathname === location.pathname);
-        a.toggleAttribute('target', a.host !== location.host);
-        nav.append(a);
-    }
-
-    if (!document.querySelector(".header-separator")) {
-        document.body.insertAdjacentHTML(
-            "afterbegin",
-            `<div class="header-separator"></div>`
-        );
-    }
-
-    document.body.insertAdjacentHTML(
-        'afterbegin',
-        `
-        <label class="color-scheme">
-            Theme:
-            <select>
-                <option value="light dark">Automatic</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-            </select>
-        </label>
-        `
-    );
-
-    const select = document.querySelector('.color-scheme select');
-    const root = document.documentElement;
-
-    function setColorScheme(colorScheme) {
-        root.style.setProperty('color-scheme', colorScheme);
-        localStorage.colorScheme = colorScheme;
-        select.value = colorScheme;
-    }
-
-    if ('colorScheme' in localStorage) {
-        setColorScheme(localStorage.colorScheme);
-    } else {
-        setColorScheme('light dark');
-    }
-
-    select.addEventListener('input', (event) => {
-        setColorScheme(event.target.value);
-    });
+  if (profileStats && githubData) {
+      profileStats.innerHTML = `
+          <h2>GitHub Stats</h2>
+          <dl>
+            <dt>Public Repos:</dt><dd>${githubData.public_repos}</dd>
+            <dt>Public Gists:</dt><dd>${githubData.public_gists}</dd>
+            <dt>Followers:</dt><dd>${githubData.followers}</dd>
+            <dt>Following:</dt><dd>${githubData.following}</dd>
+          </dl>
+      `;
+  }
 });
