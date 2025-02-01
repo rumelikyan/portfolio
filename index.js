@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    const projects = await fetchJSON('./lib/projects.json');
+    const projects = await fetchJSON('../lib/projects.json');
     const latestProjects = projects.slice(0, 3);
 
     if (latestProjects.length > 0) {
