@@ -1,29 +1,21 @@
 console.log('IT’S ALIVE!');
 
+let BASE_PATH = location.hostname === "rumelikyan.github.io" ? "/portfolio/" : "/";
 let pages = [
-  { url: 'index.html', title: 'Home' },
-  { url: 'projects/index.html', title: 'Projects' },
-  { url: 'contact/index.html', title: 'Contact' },
-  { url: 'resume/index.html', title: 'Resume' },
+  { url: `${BASE_PATH}index.html`, title: 'Home' },
+  { url: `${BASE_PATH}projects/index.html`, title: 'Projects' },
+  { url: `${BASE_PATH}contact/index.html`, title: 'Contact' },
+  { url: `${BASE_PATH}resume/index.html`, title: 'Resume' },
   { url: 'https://github.com/rumelikyan/portfolio', title: 'GitHub', external: true }
 ];
-
-const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 for (let p of pages) {
-  let url = p.url;
-  let title = p.title;
-
-  if (!ARE_WE_HOME && !url.startsWith('http')) {
-    url = '../' + url;
-  }
-
   let a = document.createElement('a');
-  a.href = url;
-  a.textContent = title;
+  a.href = p.url;
+  a.textContent = p.title;
 
   a.classList.toggle(
     'current',
