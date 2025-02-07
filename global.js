@@ -1,6 +1,6 @@
 console.log('IT’S ALIVE!');
 
-let BASE_PATH = location.hostname === "rumelikyan.github.io" ? "/portfolio/" : "/";
+let BASE_PATH = location.pathname.startsWith("/portfolio/") ? "/portfolio/" : "/";
 let pages = [
   { url: `${BASE_PATH}index.html`, title: 'Home' },
   { url: `${BASE_PATH}projects/index.html`, title: 'Projects' },
