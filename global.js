@@ -45,6 +45,15 @@ document.body.insertAdjacentHTML(
   `
 );
 
+const themeSwitcher = document.querySelector('.color-scheme');
+themeSwitcher.style.position = "fixed";
+themeSwitcher.style.top = "0.5rem";
+themeSwitcher.style.right = "1rem";
+themeSwitcher.style.padding = "0.5em";
+themeSwitcher.style.background = "rgba(255, 255, 255, 0.8)";
+themeSwitcher.style.borderRadius = "5px";
+themeSwitcher.style.zIndex = "1000";
+
 const select = document.querySelector('#theme-switcher');
 
 if ("colorScheme" in localStorage) {
@@ -58,6 +67,10 @@ select.addEventListener('input', function (event) {
   document.documentElement.style.setProperty('color-scheme', selectedScheme);
   localStorage.colorScheme = selectedScheme;
 });
+
+
+
+
 
 export async function fetchJSON(url) {
   try {
@@ -87,6 +100,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       const title = project.title || "Untitled Project";
       const image = project.image || "https://via.placeholder.com/200";
       const description = project.description || "No description available.";
+      const year = project.year ? `<p class="project-year">${project.year}</p>` : "";
 
       const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
       const headingTag = validHeadingLevels.includes(headingLevel) ? headingLevel : 'h2';
@@ -94,12 +108,16 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       article.innerHTML = `
           <${headingTag}>${title}</${headingTag}>
           <img src="${image}" alt="${title}" style="width:200px; height:auto;">
-          <p>${description}</p>
+          <div class="project-info">
+              <p>${description}</p>
+              ${year}
+          </div>
       `;
 
       containerElement.appendChild(article);
   });
 }
+
 
 export async function fetchGitHubData(username) {
   try {
