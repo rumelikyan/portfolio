@@ -85,17 +85,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     function updateFilteredProjects(data) {
-        let filteredProjects;
+        let filteredProjects = projects.filter((project) => {
+            let values = Object.values(project).join('\n').toLowerCase();
+            return values.includes(query.toLowerCase());
+        });
 
-        if (selectedIndex === -1) {
-            renderProjects(projects, projectsContainer, 'h2');
-        } else {
+        if (selectedIndex !== -1) {
             let selectedYear = data[selectedIndex].label;
-            filteredProjects = projects.filter(project => project.year.toString() === selectedYear.toString());
-            renderProjects(filteredProjects, projectsContainer, 'h2');
+            filteredProjects = filteredProjects.filter(project => project.year.toString() === selectedYear.toString());
         }
 
-        renderPieChart(selectedIndex === -1 ? projects : filteredProjects);
+        renderProjects(filteredProjects, projectsContainer, 'h2');
+        renderPieChart(filteredProjects);
     }
 
     searchInput.addEventListener('input', (event) => {
