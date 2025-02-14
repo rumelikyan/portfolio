@@ -1,0 +1,5 @@
+# Ignore generated files
+meta/loc.csv
+
+# Ignore dependencies
+node_modules/
