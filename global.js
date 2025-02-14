@@ -6,6 +6,7 @@ let pages = [
   { url: `${BASE_PATH}projects/index.html`, title: 'Projects' },
   { url: `${BASE_PATH}contact/index.html`, title: 'Contact' },
   { url: `${BASE_PATH}resume/index.html`, title: 'Resume' },
+  { url: `${BASE_PATH}meta/index.html`, title: 'Meta' },
   { url: 'https://github.com/rumelikyan/portfolio', title: 'GitHub', external: true }
 ];
 
