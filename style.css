@@ -256,18 +256,51 @@ path {
     margin: 0;
 }
 
+/* Tooltip styling */
 .tooltip {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.9); /* Light background for readability */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     padding: 8px 12px;
     font-size: 0.9em;
     line-height: 1.4;
     max-width: 250px;
-    pointer-events: none; /* Prevents tooltip from interfering with mouse events */
-    display: none; /* Start hidden */
+    pointer-events: none;
+    display: none;
+    transition: opacity 0.2s ease-in-out;
+    transform: translate(-50%, -50%)
 }
+.tooltip.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Selection Styling */
+  circle.selected {
+    fill: #ff6b6b !important;
+    stroke: black;
+    stroke-width: 2px;
+  }
+  
+  /* Styling for Brushing Rectangle */
+  .selection {
+    fill-opacity: 0.1;
+    stroke: black;
+    stroke-opacity: 0.7;
+    stroke-dasharray: 5 3;
+  }
+  
+  /* Ensure Chart Layout is Proper */
+  #chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 900px;
+    height: 500px;
+  }
 
 .tooltip dt {
     font-weight: bold;
@@ -289,21 +322,7 @@ circle:hover {
     transform: scale(1.5); /* Smooth scaling effect on hover */
 }
 
-/* Tooltip styling */
-.tooltip {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-size: 0.9em;
-    line-height: 1.4;
-    max-width: 250px;
-    pointer-events: none;
-    display: none;
-    transition: opacity 0.2s ease-in-out;
-    transform: translate(-50%, -50%)
-}
+
 
 /* Ensure tooltip uses grid layout for dt & dd elements */
 dl.info {

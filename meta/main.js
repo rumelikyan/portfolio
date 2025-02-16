@@ -46,23 +46,27 @@ function processCommits() {
 }
 
 function displayStats() {
-    const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+    const statsContainer = d3.select("#stats");
+    statsContainer.html(""); // Clear previous content
 
-    dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
-    dl.append('dd').text(data.length);
+    const dl = statsContainer.append("dl").attr("class", "stats");
 
-    dl.append('dt').text('Total commits');
-    dl.append('dd').text(commits.length);
+    dl.append("dt").html("Total <abbr title='Lines of code'>LOC</abbr>");
+    dl.append("dd").text(data.length);
 
-    dl.append('dt').text('Number of files');
-    dl.append('dd').text(d3.group(data, (d) => d.file).size);
+    dl.append("dt").text("Total commits");
+    dl.append("dd").text(commits.length);
 
-    dl.append('dt').text('Maximum depth');
-    dl.append('dd').text(d3.max(data, (d) => d.depth));
+    dl.append("dt").text("Number of files");
+    dl.append("dd").text(d3.group(data, (d) => d.file).size);
 
-    dl.append('dt').text('Average line length');
-    dl.append('dd').text(d3.mean(data, (d) => d.length).toFixed(2));
+    dl.append("dt").text("Maximum depth");
+    dl.append("dd").text(d3.max(data, (d) => d.depth));
+
+    dl.append("dt").text("Average line length");
+    dl.append("dd").text(d3.mean(data, (d) => d.length).toFixed(2));
 }
+
 
 // Tooltip functions
 function updateTooltipContent(commit) {
