@@ -228,3 +228,130 @@ path {
     background: var(--color);
     border-radius: 50%;
 }
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stats dt {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stats dd {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    line-height: 1.4;
+    max-width: 250px;
+    pointer-events: none; /* Prevents tooltip from interfering with mouse events */
+    display: none; /* Start hidden */
+}
+
+.tooltip dt {
+    font-weight: bold;
+    color: #333;
+}
+
+.tooltip dd {
+    margin: 0 0 4px 0;
+    color: #555;
+}
+
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+circle:hover {
+    transform: scale(1.5); /* Smooth scaling effect on hover */
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    line-height: 1.4;
+    max-width: 250px;
+    pointer-events: none;
+    display: none;
+    transition: opacity 0.2s ease-in-out;
+    transform: translate(-50%, -50%)
+}
+
+/* Ensure tooltip uses grid layout for dt & dd elements */
+dl.info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 6px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+dl.info dt {
+    font-weight: bold;
+    color: #333;
+}
+
+dl.info dd {
+    margin: 0;
+    color: #555;
+}
+
+/* Make tooltip hidden initially */
+dl.info[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Smooth fade-in effect */
+.tooltip[hidden] {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tooltip:not([hidden]) {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hover effect for scatterplot dots */
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+circle:hover {
+    transform: scale(1.5);
+}
+
+
