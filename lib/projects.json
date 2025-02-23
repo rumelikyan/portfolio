@@ -3,78 +3,91 @@
         "title": "Bike Traffic Visualization",
         "year": "2025",
         "image": "../images/Bike-watching.png",
-        "description": "A project visualizing bike traffic in Boston and Cambridge using Mapbox and D3 with a quantized color scale. Check it out at https://rumelikyan.github.io/Bike-Traffic/"
+        "description": "A project visualizing bike traffic in Boston and Cambridge using Mapbox and D3 with a quantized color scale.",
+        "url": "https://rumelikyan.github.io/Bike-Traffic/"
     },
     {
         "title": "DSC Final Project",
         "year": "2024",
         "image": "https://rumelikyan.github.io/DSC-Final-Project/",
-        "description": "Exploring financial market trends through data analysis."
+        "description": "Exploring financial market trends through data analysis.",
+        "url": "https://rumelikyan.github.io/DSC-Final-Project/"
     },
     {
         "title": "Project Beta",
         "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Building a predictive model for economic forecasting."
+        "description": "Building a predictive model for economic forecasting.",
+        "url": "https://example.com/project-beta"
     },
     {
         "title": "Project Gamma",
         "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Data visualization techniques for portfolio management."
+        "description": "Data visualization techniques for portfolio management.",
+        "url": "https://example.com/project-gamma"
     },
     {
         "title": "Machine Learning Basics",
         "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "An introductory exploration of machine learning algorithms."
+        "description": "An introductory exploration of machine learning algorithms.",
+        "url": "https://example.com/machine-learning-basics"
     },
     {
         "title": "Stock Market Analysis",
         "year": "2021",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Using Python and Pandas to analyze historical stock data."
+        "description": "Using Python and Pandas to analyze historical stock data.",
+        "url": "https://example.com/stock-market-analysis"
     },
     {
         "title": "Sentiment Analysis",
         "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A NLP project analyzing public sentiment on social media."
+        "description": "A NLP project analyzing public sentiment on social media.",
+        "url": "https://example.com/sentiment-analysis"
     },
     {
         "title": "Database Optimization",
         "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Optimizing SQL queries and indexing for performance."
+        "description": "Optimizing SQL queries and indexing for performance.",
+        "url": "https://example.com/database-optimization"
     },
     {
         "title": "Cryptocurrency Dashboard",
         "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A real-time dashboard displaying crypto price trends."
+        "description": "A real-time dashboard displaying crypto price trends.",
+        "url": "https://example.com/cryptocurrency-dashboard"
     },
     {
         "title": "Web Scraping Project",
         "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Using BeautifulSoup to extract data from web pages."
+        "description": "Using BeautifulSoup to extract data from web pages.",
+        "url": "https://example.com/web-scraping-project"
     },
     {
         "title": "Neural Networks",
         "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Exploring deep learning through TensorFlow and PyTorch."
+        "description": "Exploring deep learning through TensorFlow and PyTorch.",
+        "url": "https://example.com/neural-networks"
     },
     {
         "title": "E-Commerce Price Tracker",
         "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A Python bot that tracks price changes on Amazon."
+        "description": "A Python bot that tracks price changes on Amazon.",
+        "url": "https://example.com/e-commerce-price-tracker"
     },
     {
         "title": "Social Media Bot",
         "year": "2021",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Automating Twitter posts with Python and Tweepy."
+        "description": "Automating Twitter posts with Python and Tweepy.",
+        "url": "https://example.com/social-media-bot"
     }
 ]

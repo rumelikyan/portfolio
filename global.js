@@ -69,10 +69,6 @@ select.addEventListener('input', function (event) {
   localStorage.colorScheme = selectedScheme;
 });
 
-
-
-
-
 export async function fetchJSON(url) {
   try {
       const response = await fetch(url);
@@ -102,6 +98,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       const image = project.image || "https://via.placeholder.com/200";
       const description = project.description || "No description available.";
       const year = project.year ? `<p class="project-year">${project.year}</p>` : "";
+      const link = project.url ? `<p><a href="${project.url}" target="_blank">View Project</a></p>` : "";
 
       const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
       const headingTag = validHeadingLevels.includes(headingLevel) ? headingLevel : 'h2';
@@ -112,13 +109,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
           <div class="project-info">
               <p>${description}</p>
               ${year}
+              ${link}
           </div>
       `;
 
       containerElement.appendChild(article);
   });
 }
-
 
 export async function fetchGitHubData(username) {
   try {
