@@ -374,3 +374,10 @@ circle:hover {
 }
 
 
+circle {
+    @starting-style {
+      r: 0;
+    }
+    transition: all 200ms, r calc(var(--r) * 100ms);
+  }
+  
