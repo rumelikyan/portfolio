@@ -19,14 +19,33 @@
   </section>
   <section>
     <h2>Commits by Time of Day</h2>
-    <div id="filter-container" style="display: flex; align-items: baseline;">
-      <label for="timeSlider">Show commits until:
-        <input type="range" id="timeSlider" min="0" max="100" value="0">
-        <time id="selectedTime"></time>
-      </label>
+    <!-- Commit scrollytelling (from Step 3) -->
+    <div id="scrollytelling">
+      <div id="scroll-container">
+        <div id="spacer"></div>
+        <div id="items-container"></div>
+      </div>
+      <!-- Scatterplot remains alongside -->
+      <div id="chart"></div>
     </div>
-    <div id="chart"></div>
     <dl class="files"></dl>
+  </section>
+  <!-- NEW SECTION: File Sizes Scrollytelling -->
+  <section>
+    <h2>File Sizes Over Time</h2>
+    <div id="file-visualization">
+      <!-- Unit visualization on the left -->
+      <div id="unit-container">
+        <dl class="file-units"></dl>
+      </div>
+      <!-- Scrollytelling narrative on the right -->
+      <div id="file-scrollytelling">
+        <div id="file-scroll-container">
+          <div id="file-spacer"></div>
+          <div id="file-items-container"></div>
+        </div>
+      </div>
+    </div>
   </section>
   <dl id="commit-tooltip" class="info tooltip">
     <dt>Commit</dt>

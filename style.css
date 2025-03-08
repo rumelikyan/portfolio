@@ -1,69 +1,66 @@
 body {
     font: 100%/1.5 system-ui;
-    max-width: 100ch;
+    max-width: min(120ch, 80vw);
     margin-inline: max(1em, (100% - 100ch) / 2);
     padding: 1em;
-}
-
-:root {
+  }
+  
+  :root {
     --color-accent: oklch(65% 50% 0);
     color-scheme: light dark;
-}
-
-
-.searchBar {
+  }
+  
+  .searchBar {
     width: 100%;
     padding: 0.5em;
     margin: 1em 0;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-
-nav {
+  }
+  
+  nav {
     display: flex;
     justify-content: center;
     gap: 1rem;
     padding: 1rem 0;
     border-bottom: 2px solid var(--border-color);
     --border-color: oklch(50% 10% 200 / 40%);
-}
-
-nav a {
+  }
+  
+  nav a {
     text-decoration: none;
     color: inherit;
     text-align: center;
     padding: 0.5em;
     transition: all 0.2s ease-in-out;
-}
-
-nav a.current {
+  }
+  
+  nav a.current {
     border-bottom: 0.4em solid oklch(90% 3% 200);
     padding-bottom: 0.2em;
     font-weight: bold;
-}
-
-nav a:hover {
+  }
+  
+  nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
-}
-
-header {
+  }
+  
+  header {
     padding-bottom: 1rem;
     border-bottom: none;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 400%;
     line-height: 1.1;
-}
-
-h2, h3, h4, h5, h6 {
+  }
+  
+  h2, h3, h4, h5, h6 {
     line-height: 1.1;
-}
-
-
-form {
+  }
+  
+  form {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1em;
@@ -73,25 +70,25 @@ form {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-form label {
+  }
+  
+  form label {
     grid-column: 1 / -1;
     margin-block: 0.5em;
     font-weight: bold;
-}
-
-form input,
-form textarea {
+  }
+  
+  form input,
+  form textarea {
     display: block;
     width: 100%;
     box-sizing: border-box;
     padding: 0.5em;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-form button {
+  }
+  
+  form button {
     grid-column: 1 / -1;
     padding: 0.7em;
     background-color: var(--color-accent);
@@ -100,23 +97,22 @@ form button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-form button:hover {
+  }
+  
+  form button:hover {
     background-color: oklch(60% 50% 0);
-}
-
-/* Projects-specific styles */
-.projects {
+  }
+  
+  .projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     gap: 2em;
     padding: 1em;
     background-color: #f5f5f5;
     border-radius: 8px;
-}
-
-.projects article {
+  }
+  
+  .projects article {
     display: grid;
     grid-template-rows: auto 1fr auto;
     align-items: start;
@@ -126,75 +122,74 @@ form button:hover {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.projects article:hover {
+  }
+  
+  .projects article:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-}
-
-.projects h2 {
+  }
+  
+  .projects h2 {
     margin: 0 0 0.5em;
     font-size: 1.5em;
     color: var(--color-accent);
     text-align: center;
-}
-
-.projects img {
+  }
+  
+  .projects img {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 0.5em;
-}
-
-.projects p {
+  }
+  
+  .projects p {
     margin: 0;
     font-size: 0.9em;
     color: #666;
     text-align: center;
-}
-
-.project-info {
+  }
+  
+  .project-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-.project-year {
+  }
+  
+  .project-year {
     font-family: Baskerville, serif;
     font-variant-numeric: oldstyle-nums;
     font-size: 1.1em;
     color: #666;
     margin-top: 0.5em;
-}
-
-.chart-container {
+  }
+  
+  .chart-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 2em;
     max-width: 100%;
     margin: 1em 0;
-}
-
-#projects-pie-plot {
+  }
+  
+  #projects-pie-plot {
     max-width: 10em;
     flex-shrink: 0;
-}
-
-#projects-pie-plot:has(path:hover) path:not(:hover) {
+  }
+  
+  #projects-pie-plot:has(path:hover) path:not(:hover) {
     opacity: 0.5;
-}
-
-path {
+  }
+  
+  path {
     cursor: pointer;
     transition: 300ms;
-}
-
-
-.legend {
+  }
+  
+  .legend {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
     flex-grow: 1;
@@ -203,33 +198,32 @@ path {
     border: 1px solid #ccc;
     background: #f9f9f9;
     border-radius: 8px;
-}
-
-.legend li {
+  }
+  
+  .legend li {
     display: flex;
     align-items: center;
     gap: 0.5em;
     font-size: 0.9em;
-}
-
-.selected {
+  }
+  
+  .selected {
     --color: oklch(60% 45% 0) !important;
-}
-
-.selected:is(path) {
+  }
+  
+  .selected:is(path) {
     fill: var(--color);
-}
-
-
-.swatch {
+  }
+  
+  .swatch {
     display: inline-block;
     width: 1em;
     height: 1em;
     background: var(--color);
     border-radius: 50%;
-}
-
-.stats {
+  }
+  
+  .stats {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -239,25 +233,24 @@ path {
     margin: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-
-.stats dt {
+  }
+  
+  .stats dt {
     font-size: 0.85rem;
     font-weight: bold;
     color: #555;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-}
-
-.stats dd {
+  }
+  
+  .stats dd {
     font-size: 2rem;
     font-weight: bold;
     color: #333;
     margin: 0;
-}
-
-/* Tooltip styling */
-.tooltip {
+  }
+  
+  .tooltip {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -269,63 +262,25 @@ path {
     pointer-events: none;
     display: none;
     transition: opacity 0.2s ease-in-out;
-    transform: translate(-50%, -50%)
-}
-.tooltip.visible {
+    transform: translate(-50%, -50%);
+  }
+  
+  .tooltip.visible {
     visibility: visible;
     opacity: 1;
   }
   
-  /* Selection Styling */
-  circle.selected {
-    fill: #ff6b6b !important;
-    stroke: black;
-    stroke-width: 2px;
-  }
-  
-  /* Styling for Brushing Rectangle */
-  .selection {
-    fill-opacity: 0.1;
-    stroke: black;
-    stroke-opacity: 0.7;
-    stroke-dasharray: 5 3;
-  }
-  
-  /* Ensure Chart Layout is Proper */
-  #chart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 900px;
-    height: 500px;
-  }
-
-.tooltip dt {
-    font-weight: bold;
-    color: #333;
-}
-
-.tooltip dd {
-    margin: 0 0 4px 0;
-    color: #555;
-}
-
-circle {
+  circle {
     transition: 200ms;
     transform-origin: center;
     transform-box: fill-box;
-}
-
-circle:hover {
-    transform: scale(1.5); /* Smooth scaling effect on hover */
-}
-
-
-
-/* Ensure tooltip uses grid layout for dt & dd elements */
-dl.info {
+  }
+  
+  circle:hover {
+    transform: scale(1.5);
+  }
+  
+  dl.info {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 5px 10px;
@@ -333,70 +288,58 @@ dl.info {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 6px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-dl.info dt {
+  }
+  
+  dl.info dt {
     font-weight: bold;
     color: #333;
-}
-
-dl.info dd {
+  }
+  
+  dl.info dd {
     margin: 0;
     color: #555;
-}
-
-/* Make tooltip hidden initially */
-dl.info[hidden]:not(:hover, :focus-within) {
+  }
+  
+  dl.info[hidden]:not(:hover, :focus-within) {
     opacity: 0;
     visibility: hidden;
-}
-
-/* Smooth fade-in effect */
-.tooltip[hidden] {
+  }
+  
+  .tooltip[hidden] {
     opacity: 0;
     visibility: hidden;
-}
-
-.tooltip:not([hidden]) {
+  }
+  
+  .tooltip:not([hidden]) {
     opacity: 1;
     visibility: visible;
-}
-
-/* Hover effect for scatterplot dots */
-circle {
-    transition: 200ms;
-    transform-origin: center;
-    transform-box: fill-box;
-}
-
-circle:hover {
-    transform: scale(1.5);
-}
-
-
-circle {
+  }
+  
+  circle {
     @starting-style {
       r: 0;
     }
     transition: all 200ms, r calc(var(--r) * 100ms);
   }
   
-
   .files {
     display: grid;
     grid-template-columns: auto auto;
     gap: 0.2rem 1rem;
     margin-top: 1em;
   }
+  
   .files > div {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: subgrid;
   }
+  
   dt {
     grid-column: 1;
     margin: 0;
   }
+  
   dd {
     grid-column: 2;
     display: flex;
@@ -407,11 +350,116 @@ circle {
     padding-top: 0.6em;
     margin-left: 0;
   }
+  
   .line {
     display: flex;
     width: 0.5em;
     aspect-ratio: 1;
-    background: steelblue;
     border-radius: 50%;
   }
+  
+  /* Scrollytelling Styles */
+  /* Scrollytelling Styles for Commit Narratives */
+#scrollytelling {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  
+  #scroll-container {
+    grid-column: 1;
+    position: relative;
+    width: 95%;
+    height: 350px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+  }
+  
+  #chart {
+    grid-column: 2;
+  }
+  
+  #spacer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: none;
+    pointer-events: none;
+  }
+  
+  #items-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .item {
+    height: 150px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #eee;
+  }
+  
+  /* New File Sizes Scrollytelling Styles */
+  #file-visualization {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-top: 2em;
+  }
+  
+  #unit-container {
+    /* Unit visualization container for file sizes (left side) */
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .file-units {
+    /* Style your file units visualization as needed */
+  }
+  
+  #file-scrollytelling {
+    grid-column: 2;
+    position: relative;
+    width: 95%;
+    height: 350px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+  }
+  
+  #file-scroll-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  
+  #file-spacer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: none;
+    pointer-events: none;
+  }
+  
+  #file-items-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .file-item {
+    height: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #eee;
+  }
+  
   
